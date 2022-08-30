@@ -24,7 +24,7 @@ def main():
         else:
             printer += line.strip()
 
-    sys.stdout.write(printer)
+    print(printer)
 
 
 if __name__ == '__main__':

@@ -34,7 +34,7 @@ def main():
             namedict[name] += line.strip()
     
     printer = ''
-    newline = '\n'
+    newline = ''
     for line in (args.coords):
         lst = line.split()
         name = lst[0].replace('>',  '')
@@ -46,7 +46,7 @@ def main():
             printer += newline + splice
             newline = '\n'
     
-    sys.stdout.write(printer)
+    print(printer)
 
 
 if __name__ == '__main__':
