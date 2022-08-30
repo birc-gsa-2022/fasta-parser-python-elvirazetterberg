@@ -34,7 +34,7 @@ def main():
             namedict[name] += line.strip()
     
     printer = ''
-    newline = ''
+    newline = '\n'
     for line in (args.coords):
         lst = line.split()
         name = lst[0].replace('>',  '')
