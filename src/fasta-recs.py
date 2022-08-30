@@ -14,13 +14,15 @@ def main():
     print(f"Now I need to process the records in {args.fasta}")
 
     printer = ''
+    newline = ''
     for line in (args.fasta):
         if '>' in line:
             name = line.replace('>',  '')
             name = name.strip()
-            printer += name + '\t'
+            printer += newline + name + '\t'
+            newline = '\n'
         else:
-            printer += line
+            printer += line.strip()
 
     sys.stdout.write(printer)
 
