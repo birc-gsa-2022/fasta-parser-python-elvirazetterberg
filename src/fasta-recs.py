@@ -12,33 +12,20 @@ def main():
 
     # print(f"Now I need to process the records in {args.fasta}")
 
-    printerlist = []
-    i = -1
+    printer = ''
     for line in (args.fasta):
         if '>' in line:
-            i += 1
+            if printer != '':
+                print(printer)
+                printer = ''
             name = line.replace('>',  '')
             name = name.strip()
-            printerlist.append(name + '\t')
+            printer += name + '\t'
         else:
-            printerlist[i] += line
+            printer += line.strip()
 
-    # f = open('test-data/genome-1.fa-fasta-recs-expected', 'r')
-    # reflines = f.readlines()
-
-    # for i,ref in enumerate(reflines):
-    #     if printerlist[i] == ref:
-    #         print("match")
-    #     else:
-    #         print("mismatch")
-    #         print(printerlist[i]+'end')
-    #         print(ref+'end')
-        
-
-    for f in printerlist:
-        print(f, end = '')
-
-    # print()
+    # print last line     
+    print(printer)
 
 if __name__ == '__main__':
     main()

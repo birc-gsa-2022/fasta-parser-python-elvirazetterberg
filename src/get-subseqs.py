@@ -32,9 +32,7 @@ def main():
             namedict[name] = ''
         else:
             namedict[name] += line.strip()
-    
-    printer = ''
-    newline = ''
+
     for line in (args.coords):
         lst = line.split()
         name = lst[0].replace('>',  '')
@@ -43,12 +41,7 @@ def main():
             a = int(lst[1])-1
             b = int(lst[2])-1
             splice = namedict[name][a:b]
-            printer += newline + splice
-            newline = '\n'
-    
-    printer += '\n'
-    print(printer)
-
+            print(splice)
 
 if __name__ == '__main__':
     main()
