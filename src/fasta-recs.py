@@ -1,5 +1,4 @@
 import argparse
-import sys
 
 def main():
     argparser = argparse.ArgumentParser(
@@ -13,20 +12,31 @@ def main():
 
     print(f"Now I need to process the records in {args.fasta}")
 
-    printer = ''
-    newline = ''
+    printerlist = []
+    i = -1
     for line in (args.fasta):
         if '>' in line:
+            i += 1
             name = line.replace('>',  '')
             name = name.strip()
-            printer += newline + name + '\t'
-            newline = '\n'
+            printerlist.append(name + '\t')
         else:
-            printer += line.strip()
+            printerlist[i] += line
 
-    printer += '\n'
-    print(printer)
+    # f = open('test-data/genome-1.fa-fasta-recs-expected', 'r')
+    # reflines = f.readlines()
 
+    # for i,ref in enumerate(reflines):
+    #     if printerlist[i] == ref:
+    #         print("match")
+    #     else:
+    #         print("mismatch")
+    #         print(printerlist[i]+'end')
+    #         print(ref+'end')
+        
+
+    for f in printerlist:
+        print(f, end = '')
 
 if __name__ == '__main__':
     main()
