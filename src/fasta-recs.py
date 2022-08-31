@@ -24,6 +24,7 @@ def main():
         else:
             printer += line.strip()
 
+    printer += '\n'
     print(printer)
 
 

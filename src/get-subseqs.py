@@ -46,6 +46,7 @@ def main():
             printer += newline + splice
             newline = '\n'
     
+    printer += '\n'
     print(printer)
 
 
