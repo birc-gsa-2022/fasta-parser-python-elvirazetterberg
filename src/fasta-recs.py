@@ -38,5 +38,7 @@ def main():
     for f in printerlist:
         print(f, end = '')
 
+    print()
+
 if __name__ == '__main__':
     main()
