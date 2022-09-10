@@ -12,18 +12,20 @@ def main():
 
     # print(f"Now I need to process the records in {args.fasta}")
 
-    printer = ''
-    for line in (args.fasta):
-        if '>' in line:
-            if printer != '':
+    printer = []
+    for line in args.fasta:
+        if line.startswith('>'):
+            if len(printer) != 0:
                 print(printer)
                 printer = ''
-            name = line.replace('>',  '')
+            name = line[1:]
             name = name.strip()
-            printer += name + '\t'
+            printer.append(name)
+            printer.append('\t')
         else:
-            printer += line.strip()
+            printer.append(line.strip())
 
+    printer = ''.join(printer)
     # print last line     
     print(printer)
 
